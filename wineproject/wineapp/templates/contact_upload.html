@@ -1,0 +1,8 @@
+{{order}}
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <label> Upload a file </label>
+  <input type="file" name="file" >
+  <p> Only accepts CSV file </p>
+  <button type="submit" name="button"> Upload</button>
+</form>
