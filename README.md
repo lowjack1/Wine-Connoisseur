@@ -44,6 +44,7 @@ Assuming Google Chrome and Python3 is installed in your system.
 `pip3 manage.py runserver`
 
 ## It will look something like this
-![Image]() <br />
-![Image]() <br />
-![Image]() <br />
+![Image](https://github.com/lowjack1/Wine-Connoisseur/blob/master/wineproject/static/images/background/pic1.png) <br />
+![Image](https://github.com/lowjack1/Wine-Connoisseur/blob/master/wineproject/static/images/background/pic2.png) <br />
+![Image](https://github.com/lowjack1/Wine-Connoisseur/blob/master/wineproject/static/images/background/pic3.png) <br />
+![Image](https://github.com/lowjack1/Wine-Connoisseur/blob/master/wineproject/static/images/background/pic4.png) <br />
