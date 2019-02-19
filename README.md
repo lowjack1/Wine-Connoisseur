@@ -2,8 +2,7 @@
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-### This is full stack web application which is an helpful for wine lovers to know more about wines and found the best variety according to Country’s best wine. Clean user interface will keep user engage in our application and it is very easy to use.
-
+### This is a full stack web application which is helpful for wine lovers to know more about wines and found the best variety according to Country’s best wine.
 ## Technology Stack:
 * Mysql
 * Django Framework
@@ -45,6 +44,6 @@ Assuming Google Chrome and Python3 is installed in your system.
 `pip3 manage.py runserver`
 
 ## It will look something like this
-![Image]()
-![Image]()
-![Image]()
+![Image]() <br />
+![Image]() <br />
+![Image]() <br />
