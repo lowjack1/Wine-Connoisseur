@@ -2,7 +2,7 @@
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-### This is a full stack web application which is helpful for wine lovers to know more about wines and found the best variety according to Country’s best wine.
+### This is a full stack web application which is helpful for wine lovers to know more about wines and found the best variety according to their Country’s best wine.
 ## Technology Stack:
 * Mysql
 * Django Framework
@@ -48,3 +48,7 @@ Assuming Google Chrome and Python3 is installed in your system.
 ![Image](https://github.com/lowjack1/Wine-Connoisseur/blob/master/wineproject/static/images/background/pic2.png) <br /><br />
 ![Image](https://github.com/lowjack1/Wine-Connoisseur/blob/master/wineproject/static/images/background/pic3.png) <br /><br />
 ![Image](https://github.com/lowjack1/Wine-Connoisseur/blob/master/wineproject/static/images/background/pic4.png) <br /><br />
+
+# Scope For Improvements
+* Infinite Scrolling makes the user stay for a longer time.
+* Going through all the wines to find any particular wine is tedius, and while an alternative would be to add a search bar which can search any particular wine.
