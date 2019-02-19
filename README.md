@@ -40,7 +40,7 @@ Assuming Google Chrome and Python3 is installed in your system.
 `python3 manage.py collectstatic` <br />
 `python3 manage.py makemigratiion` <br />
 `python3 manage.py migrate` <br />
-* Finally run the server. pip3 manage.py runserver
+* Finally run the server. <br />
 `pip3 manage.py runserver`
 
 ## It will look something like this
