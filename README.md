@@ -52,3 +52,4 @@ Assuming Google Chrome and Python3 is installed in your system.
 # Scope For Improvements
 * Infinite Scrolling makes the user stay for a longer time.
 * Going through all the wines to find any particular wine is tedius, and while an alternative would be to add a search bar which can search any particular wine.
+
