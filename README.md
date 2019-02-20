@@ -29,7 +29,6 @@ Assuming Google Chrome and Python3 is installed in your system.
 `pip3 install django`<br>
 `pip3 install django-widget-tweaks`<br />
 `pip3 install django-filter>=2.0`<br />
-`pip3 install django-filter>=2.0`<br />
 * Install MySQL server
 * Create new schema or database <br />
 `CREATE SCHEMA schema_name ;`
