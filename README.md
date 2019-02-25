@@ -49,6 +49,5 @@ Assuming Google Chrome and Python3 is installed in your system.
 ![Image](https://github.com/lowjack1/Wine-Connoisseur/blob/master/wineproject/static/images/background/pic4.png) <br /><br />
 
 # Scope For Improvements
-* Infinite Scrolling makes the user stay for a longer time.
 * Going through all the wines to find any particular wine is tedius, and while an alternative would be to add a search bar which can search any particular wine.
 
