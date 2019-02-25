@@ -40,19 +40,29 @@
 
         <script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="{% static 'jquery.waypoints.min.js' %}"></script>
-        <script src="{% static 'infinite.min.js' %}"></script>
+        <script src="{% static 'js/waypoints/lib/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'js/waypoints/lib/shortcuts/infinite.min.js' %}"></script>
 
         <style type="text/css">
-            .infinite-item, .loading {
-              margin-bottom: 5px;
-              background-color: #1eaedb;
-              color: #fff;
-              text-align: center;
-              padding: 25px 0;
+            .loader {
+              border: 13px solid #f3f3f3;
+              border-radius: 50%;
+              border-top: 13px solid #4169E1;
+              border-bottom: 13px solid #4169E1;
+              width: 80px;
+              height: 80px;
+              -webkit-animation: spin 2s linear infinite;
+              animation: spin 2s linear infinite;
             }
-            .loading {
-              background-color: #333;
+
+            @-webkit-keyframes spin {
+              0% { -webkit-transform: rotate(0deg); }
+              100% { -webkit-transform: rotate(360deg); }
+            }
+
+            @keyframes spin {
+              0% { transform: rotate(0deg); }
+              100% { transform: rotate(360deg); }
             }
             .card {
                 position: relative;
@@ -160,7 +170,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                            <li><a href="">home</a></li>
+                            <li><a href="{% url 'home' %}">home</a></li>
                             <li><a href="{% url 'aboutus' %}">about</a></li>
                             <li><a href="{% url 'contactus' %}">contact</a></li>
                         </ul>
@@ -195,57 +205,60 @@
             <section id="feature" class="feature p-top-100">
                 <div class="container">
                     {% block content %}
-                       {% for data in wines %}
-                            <div class="card text-white card-template">
-                                <div class="card-img-overlay" style = "word-wrap:break-word;clear:both;">
-                                    <h1 class="card-title" style = "color:white;"> 
-                                        <strong> {{ data.winery }} </strong> 
-                                    </h1> 
-                                    <h4 style = "color:white;"> 
-                                        {% if data.country %} 
-                                            {{ data.country }}{% if data.province %}, 
-                                                {{ data.province }}{% endif %}{% if data.region_1 %}, 
-                                                {{ data.region_1 }}{% elif data.region_2 %}, {{ data.region_2 }}
-                                            {% endif %}
-                                        {% endif %}
-                                    </h4>
-                                    {% if data.country %} 
-                                        <h5 style = "color:white;font-size: 156%;"> <i> 
-                                            {{ data.designation }} 
-                                        </i></h5>
-                                     {% endif %}
-                                    <p class="card-text" style="font-size: 120%;">
-                                        {{ data.description }}
-                                    </p>
-                                    <br>
-                                    <p class="card-text" style = "font-size: 110%"><strong> 
-                                        Variety : </strong> {{ data.variety }} 
-                                    </p>
-                                    <p class="card-text" style = "font-size: 110%"><strong> 
-                                        Price &nbsp;&nbsp; : $ </strong> {{ data.price }}
-                                    </p>
-                                    <p class="card-text" style = "font-size: 110%"ss>
-                                        <strong> Rating &nbsp;: </strong>
-                                        {% if data.points >= 1 %} ⭐ {% endif %} 
-                                        {% if data.points >= 25 %} ⭐ {% endif %}
-                                        {% if data.points >= 50 %} ⭐ {% endif %} 
-                                        {% if data.points >= 75 %}  ⭐ {% endif %}
-                                        {% if data.points >= 100 %} ⭐ {% endif %}   
-                                    </p>
+                        <div class="infinite-container">
+                           {% for data in wines %}
+                               <div class="infinite-item">
+                                    <div class="card text-white card-template">
+                                        <div class="card-img-overlay" style = "word-wrap:break-word;clear:both;">
+                                            <h1 class="card-title" style = "color:white;"> 
+                                                <strong> {{ data.winery }} </strong> 
+                                            </h1> 
+                                            <h4 style = "color:white;"> 
+                                                {% if data.country %} 
+                                                    {{ data.country }}{% if data.province %}, 
+                                                        {{ data.province }}{% endif %}{% if data.region_1 %}, 
+                                                        {{ data.region_1 }}{% elif data.region_2 %}, {{ data.region_2 }}
+                                                    {% endif %}
+                                                {% endif %}
+                                            </h4>
+                                            {% if data.country %} 
+                                                <h5 style = "color:white;font-size: 156%;"> <i> 
+                                                    {{ data.designation }} 
+                                                </i></h5>
+                                             {% endif %}
+                                            <p class="card-text" style="font-size: 120%;">
+                                                {{ data.description }}
+                                            </p>
+                                            <br>
+                                            <p class="card-text" style = "font-size: 110%"><strong> 
+                                                Variety : </strong> {{ data.variety }} 
+                                            </p>
+                                            <p class="card-text" style = "font-size: 110%"><strong> 
+                                                Price &nbsp;&nbsp; : $ </strong> {{ data.price }}
+                                            </p>
+                                            <p class="card-text" style = "font-size: 110%"ss>
+                                                <strong> Rating &nbsp;: </strong>
+                                                {% if data.points >= 1 %} ⭐ {% endif %} 
+                                                {% if data.points >= 25 %} ⭐ {% endif %}
+                                                {% if data.points >= 50 %} ⭐ {% endif %} 
+                                                {% if data.points >= 75 %}  ⭐ {% endif %}
+                                                {% if data.points >= 100 %} ⭐ {% endif %}   
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <br>
-                            <br>
-                            {% empty %}
-                        {% endfor %}
-                        <div class="loading" style="display: none;">
-                            Loading...
+                                <div class="infinite-item">
+                                    <br>
+                                    <br>
+                                </div>
+                                {% empty %}
+                            {% endfor %}
                         </div>
+                        <center><div class="loader" style="display: none;"> </div> </center>
 
                         {% if wines.has_next %}
                             <center> <h4> <strong> 
                                 <a class="infinite-more-link" href="?page={{ wines.next_page_number }}"> 
-                                    Next 
                                 </a>
                             </strong> </h4> </center>
                         {% endif %}
@@ -254,10 +267,10 @@
                             var infinite = new Waypoint.Infinite({
                                 element: $('.infinite-container')[0], 
                                 onBeforePageLoad: function () {
-                                    $('.loading').show();
+                                    $('.loader').show();
                                 },
                                 onAfterPageLoad: function ($items) {
-                                    $('.loading').hide();
+                                    $('.loader').hide();
                                 }
                             });
                         </script>
