@@ -33,7 +33,7 @@ Assuming Google Chrome and Python3 is installed in your system.
 * Create new schema or database <br />
 `CREATE SCHEMA schema_name ;`
 * Import data.sql file to the database. <br />
-`mysql -u username -p database_name < path/to/Wine-Connoisseur/DumpData/data.sql`
+`mysql -u username -p database_name < path/to/Wine-Connoisseur/Data/data.sql`
 * Update all the credentials of your database in `path/to/Wine-Connoisseur/wineproject/wineproject/settings.py`
 * Now propagate all changes in django project. <br />
 `python3 manage.py collectstatic` <br />
