@@ -1,341 +1,181 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <title>The Winery Shop</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/png" href="favicon.ico">
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
 
-        <!--Google Fonts link-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  {% block head %}
+  <title></title>
+  {% endblock %}
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon.ico">
 
-        <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
-
-
-        <link rel="stylesheet" href="{% static 'css/slick.css' %}">
-        <link rel="stylesheet" href="{% static 'css/slick-theme.css' %}">
-        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
-        <link rel="stylesheet" href="{% static 'css/fonticons.css' %}">
-        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
-        <link rel="stylesheet" href="{% static 'css/bootsnav.css' %}">
+  <!--Google Fonts link-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
 
 
-        <!--For Plugins external css-->
-        <!--<link rel="stylesheet" href="{% static 'css/plugins.css" />-->
+  <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+  <link rel="stylesheet" href="{% static 'css/slick-theme.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'css/fonticons.css' %}">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootsnav.css' %}">
 
-        <!--Theme custom css -->
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <!--<link rel="stylesheet" href="{% static 'css/colors/maron.css' %}">-->
 
-        <!--Theme Responsive css-->
-        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <!--For Plugins external css-->
+  <!--<link rel="stylesheet" href="{% static 'css/plugins.css" />-->
 
-        <script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="{% static 'js/waypoints/lib/jquery.waypoints.min.js' %}"></script>
-        <script src="{% static 'js/waypoints/lib/shortcuts/infinite.min.js' %}"></script>
+  <!--Theme custom css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!--<link rel="stylesheet" href="{% static 'css/colors/maron.css' %}">-->
 
-        <style type="text/css">
-            .loader {
-              border: 13px solid #f3f3f3;
-              border-radius: 50%;
-              border-top: 13px solid #4169E1;
-              border-bottom: 13px solid #4169E1;
-              width: 80px;
-              height: 80px;
-              -webkit-animation: spin 2s linear infinite;
-              animation: spin 2s linear infinite;
-            }
+  <!--Theme Responsive css-->
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+</head>
 
-            @-webkit-keyframes spin {
-              0% { -webkit-transform: rotate(0deg); }
-              100% { -webkit-transform: rotate(360deg); }
-            }
+<body data-spy="scroll" data-target=".navbar-collapse">
 
-            @keyframes spin {
-              0% { transform: rotate(0deg); }
-              100% { transform: rotate(360deg); }
-            }
-            .card {
-                position: relative;
-                display: -ms-flexbox;
-                display: flex;
-                -ms-flex-direction: column;
-                flex-direction: column;
-                min-width: 0;
-                word-wrap: break-word;
-                background-color: #fff;
-                background-clip: border-box;
-                border: 1px solid rgba(0, 0, 0, .125);
-                border-radius: .25rem
-            }
-            .text-white {
-                color: #FFFFFF!important
-            }
-            .card-img-overlay {
-                position: relative;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                padding: 1.25rem
-            }
-            .card-title {
-                margin-bottom: .75rem
-            }
-            .card-text {
-                margin-bottom: 0
-            }
-            .card-template {
-                background-color:#4169E1;
-                border-radius:15px;
-                margin:auto;
-                padding:10px;
-                border:3px solid;
-                width:80%;
-                min-height:50%;
-                word-wrap:break-word;
-                clear:both;
-            }
-        </style>
-    </head>
-
-    <body data-spy="scroll" data-target=".navbar-collapse">
-        
-        <!-- Preloader -->
-        <div id="loading">
-            <div id="loading-center">
-                <div id="loading-center-absolute">
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                </div>
-            </div>
+  <!-- Preloader -->
+  <div id="loading">
+    <div id="loading-center">
+      <div id="loading-center-absolute">
+        <div class="object"></div>
+        <div class="object"></div>
+        <div class="object"></div>
+        <div class="object"></div>
+        <div class="object"></div>
+        <div class="object"></div>
+        <div class="object"></div>
+        <div class="object"></div>
+        <div class="object"></div>
+        <div class="object"></div>
+      </div>
+    </div>
+  </div>
+  <!--End off Preloader -->
+  <div class="culmn">
+    <!--Home page style-->
+    <nav class="navbar navbar-default navbar-fixed white no-background bootsnav text-uppercase">
+      <!-- Start Top Search -->
+      <div class="top-search">
+        <div class="container">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+          </div>
         </div>
-
-        <!--End off Preloader -->
-        <div class="culmn">
-            <!--Home page style-->
-            <nav class="navbar navbar-default navbar-fixed white no-background bootsnav text-uppercase">
-                <!-- Start Top Search -->
-                <div class="top-search">
-                    <div class="container">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                            <input type="text" class="form-control" placeholder="Search">
-                            <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Top Search -->
-
-                <div class="container">
-                    <!-- Start Atribute Navigation -->
-                    <div class="attr-nav">
-                        <ul>
-                            <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- End Atribute Navigation -->
-
-                    <!-- Start Header Navigation -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <a class="navbar-brand" href="{% url 'home' %}">
-
-                            <img src="{% static 'images/newlogo.png' %}" class="logo logo-display" alt="">
-                            <img src="{% static 'images/newlogo.png' %}" class="logo logo-scrolled" alt="">
-
-                        </a>
-                    </div>
-                    <!-- End Header Navigation -->
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="navbar-menu">
-                        <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                            <li><a href="{% url 'home' %}">home</a></li>
-                            <li><a href="{% url 'aboutus' %}">about</a></li>
-                            <li><a href="{% url 'contactus' %}">contact</a></li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div>
-            </nav>
-            <!--Home Sections-->
-
-            <section id="hello" class="home bg-mega">
-                <div class="overlay"></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="main_home text-center">
-                            <div class="home_text">
-                                <h4 class="text-white text-uppercase">Your Wine drinking 101 Guide</h4>
-                                <h1 class="text-white text-uppercase">"Wine is constant proof that God loves us and loves 
-                                    to see us happy”
-                                </h1>
-
-                                <div class="separator"></div>
-                                <h5 class=" text-uppercase text-white">
-                                    <em>Age is just a number. It's totally irrelevant unless, of course, you happen to be a 
-                                        bottle of wine.
-                                    </em>
-                                </h5>
-                            </div>
-                        </div>
-                    </div><!--End off row-->
-                </div><!--End off container -->
-            </section> <!--End off Home Sections-->
-
-            <section id="feature" class="feature p-top-100">
-                <div class="container">
-                    {% block content %}
-                        <div class="infinite-container">
-                           {% for data in wines %}
-                               <div class="infinite-item">
-                                    <div class="card text-white card-template">
-                                        <div class="card-img-overlay" style = "word-wrap:break-word;clear:both;">
-                                            <h1 class="card-title" style = "color:white;"> 
-                                                <strong> {{ data.winery }} </strong> 
-                                            </h1> 
-                                            <h4 style = "color:white;"> 
-                                                {% if data.country %} 
-                                                    {{ data.country }}{% if data.province %}, 
-                                                        {{ data.province }}{% endif %}{% if data.region_1 %}, 
-                                                        {{ data.region_1 }}{% elif data.region_2 %}, {{ data.region_2 }}
-                                                    {% endif %}
-                                                {% endif %}
-                                            </h4>
-                                            {% if data.country %} 
-                                                <h5 style = "color:white;font-size: 156%;"> <i> 
-                                                    {{ data.designation }} 
-                                                </i></h5>
-                                             {% endif %}
-                                            <p class="card-text" style="font-size: 120%;">
-                                                {{ data.description }}
-                                            </p>
-                                            <br>
-                                            <p class="card-text" style = "font-size: 110%"><strong> 
-                                                Variety : </strong> {{ data.variety }} 
-                                            </p>
-                                            <p class="card-text" style = "font-size: 110%"><strong> 
-                                                Price &nbsp;&nbsp; : $ </strong> {{ data.price }}
-                                            </p>
-                                            <p class="card-text" style = "font-size: 110%"ss>
-                                                <strong> Rating &nbsp;: </strong>
-                                                {% if data.points >= 1 %} ⭐ {% endif %} 
-                                                {% if data.points >= 25 %} ⭐ {% endif %}
-                                                {% if data.points >= 50 %} ⭐ {% endif %} 
-                                                {% if data.points >= 75 %}  ⭐ {% endif %}
-                                                {% if data.points >= 100 %} ⭐ {% endif %}   
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="infinite-item">
-                                    <br>
-                                    <br>
-                                </div>
-                                {% empty %}
-                            {% endfor %}
-                        </div>
-                        <center><div class="loader" style="display: none;"> </div> </center>
-
-                        {% if wines.has_next %}
-                            <center> <h4> <strong> 
-                                <a class="infinite-more-link" href="?page={{ wines.next_page_number }}"> 
-                                </a>
-                            </strong> </h4> </center>
-                        {% endif %}
-
-                        <script>
-                            var infinite = new Waypoint.Infinite({
-                                element: $('.infinite-container')[0], 
-                                onBeforePageLoad: function () {
-                                    $('.loader').show();
-                                },
-                                onAfterPageLoad: function ($items) {
-                                    $('.loader').hide();
-                                }
-                            });
-                        </script>
-                    {% endblock %}
-                </div>
-            </section>
-
-            <section id="company" class="company bg-light">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_company roomy-100 text-center">
-                            <h3 class="text-uppercase">THE WIne 🍾</h3>
-                            <p> 7th floor - Palace Building - Lucknow INDIA</p>
-                            <p> +917905236214 - light@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- scroll up-->
-            <div class="scrollup">
-                <a href="#"><i class="fa fa-chevron-up"></i></a>
-            </div><!-- End off scroll up -->
-
-            <footer id="footer" class="footer bg-mega">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_footer p-top-40 p-bottom-30">
-                            <div class="col-md-6 text-left sm-text-center">
-                                <p class="wow fadeInRight" data-wow-duration="1s">
-                                    Made with
-                                    <i class="fa fa-heart"></i>
-                                    for
-                                    <a target="_blank" href="https://www.hackerearth.com">HackerEarth</a>
-                                    2019. All Rights Reserved
-                                </p>
-                            </div>
-                            <div class="col-md-6 text-right sm-text-center sm-m-top-20">
-                                <ul class="list-inline">
-                                    <li><a href="">Facebook</a></li>
-                                    <li><a href="">Twitter</a></li>
-                                    <li><a href="">Instagram</a></li>
-                                    <li><a href="">Pinterest</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+      </div>
+      <!-- End Top Search -->
+      <div class="container">
+        <!-- Start Atribute Navigation -->
+        <div class="attr-nav">
+          <ul>
+            <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+          </ul>
         </div>
+        <!-- End Atribute Navigation -->
 
-        <!-- JS includes -->
+        <!-- Start Header Navigation -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+            <i class="fa fa-bars"></i>
+          </button>
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'images/newlogo.png' %}" class="logo logo-display" alt="">
+            <img src="{% static 'images/newlogo.png' %}" class="logo logo-scrolled" alt="">
+          </a>
+        </div>
+        <!-- End Header Navigation -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-menu">
+          <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+            <li><a href="{% url 'home' %}">home</a></li>
+            <li><a href="{% url 'aboutus' %}">about</a></li>
+            <li><a href="{% url 'contactus' %}">contact</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+    </nav>
+    {% block home_section %}
 
-        <script src="{% static 'js/vendor/jquery-1.11.2.min.js' %}"></script>
-        <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+    {% endblock %}
+  </div>
 
-        <script src="{% static 'js/isotope.min.js' %}"></script>
-        <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
-        <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
-        <script src="{% static 'js/slick.min.js' %}"></script>
-        <script src="{% static 'js/jquery.collapse.js' %}"></script>
-        <script src="{% static 'js/bootsnav.js' %}"></script>
+  {% block content %}
 
-        <script src="{% static 'js/plugins.js' %}"></script>
-        <script src="{% static 'js/main.js' %}"></script>
+  {% endblock %}
 
-    </body>
+  <section id="company" class="company bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="main_company roomy-100 text-center">
+          <h3 class="text-uppercase">Light's WIne 🍾</h3>
+          <p> 7th floor - Palace Building - Lucknow INDIA</p>
+          <p> +917905236214 - light@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- scroll up-->
+  <div class="scrollup">
+    <a href="#"><i class="fa fa-chevron-up"></i></a>
+  </div><!-- End off scroll up -->
+
+  <footer id="footer" class="footer bg-mega">
+    <div class="container">
+      <div class="row">
+        <div class="main_footer p-top-40 p-bottom-30">
+          <div class="col-md-6 text-left sm-text-center">
+            <p class="wow fadeInRight" data-wow-duration="1s">
+              Made with
+              <i class="fa fa-heart"></i>
+              for
+              <a target="_blank" href="https://www.hackerearth.com">HackerEarth</a>
+              2019. All Rights Reserved
+            </p>
+          </div>
+          <div class="col-md-6 text-right sm-text-center sm-m-top-20">
+            <ul class="list-inline">
+              <li><a href="https://www.facebook.com/">Facebook</a></li>
+              <li><a href="https://twitter.com/">Twitter</a></li>
+              <li><a href="https://www.instagram.com/">Instagram</a></li>
+              <li><a href="https://www.pinterest.com/">Pinterest</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS includes -->
+
+  <script src="{% static 'js/vendor/jquery-1.11.2.min.js' %}"></script>
+  <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+
+  <script src="{% static 'js/isotope.min.js' %}"></script>
+  <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js/slick.min.js' %}"></script>
+  <script src="{% static 'js/jquery.collapse.js' %}"></script>
+  <script src="{% static 'js/bootsnav.js' %}"></script>
+
+  <script src="{% static 'js/plugins.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  {% block external_js %}
+  {% endblock %}
+</body>
+
 </html>

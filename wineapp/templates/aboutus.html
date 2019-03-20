@@ -1,212 +1,53 @@
+{% extends 'base.html' %}
 {% load static %}
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <title>About Us</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/png" href="favicon.ico">
 
-        <!--Google Fonts link-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+{% block head %}
+<title>About Us</title>
+{% endblock %}
 
-        <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
-
-
-        <link rel="stylesheet" href="{% static 'css/slick.css' %}">
-        <link rel="stylesheet" href="{% static 'css/slick-theme.css' %}">
-        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
-        <link rel="stylesheet" href="{% static 'css/fonticons.css' %}">
-        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
-        <link rel="stylesheet" href="{% static 'css/bootsnav.css' %}">
-
-
-        <!--For Plugins external css-->
-        <!--<link rel="stylesheet" href="{% static 'css/plugins.css" />-->
-
-        <!--Theme custom css -->
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <!--<link rel="stylesheet" href="{% static 'css/colors/maron.css' %}">-->
-
-        <!--Theme Responsive css-->
-        <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
-
-        <script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}" ></script>
-    </head>
-
-    <body data-spy="scroll" data-target=".navbar-collapse">
-
-        <!-- Preloader -->
-        <div id="loading">
-            <div id="loading-center">
-                <div id="loading-center-absolute">
-                    <div class="object" id="object_one"></div>
-                    <div class="object" id="object_two"></div>
-                    <div class="object" id="object_three"></div>
-                    <div class="object" id="object_four"></div>
-                </div>
-            </div>
-        </div><!--End off Preloader -->
-
-        <div class="culmn">
-            <!--Home page style-->
-
-            <nav class="navbar navbar-default navbar-fixed white no-background bootsnav text-uppercase">
-                <!-- Start Top Search -->
-                <div class="top-search">
-                    <div class="container">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                            <input type="text" class="form-control" placeholder="Search">
-                            <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Top Search -->
-
-                <div class="container">
-                    <!-- Start Atribute Navigation -->
-                    <div class="attr-nav">
-                        <ul>
-                            <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-
-                        </ul>
-                    </div>
-                    <!-- End Atribute Navigation -->
-
-                    <!-- Start Header Navigation -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <a class="navbar-brand" href="{% url 'home' %}">
-                            <img src="{% static 'images/newlogo.png' %}" class="logo logo-display" alt="">
-                            <img src="{% static 'images/newlogo.png' %}" class="logo logo-scrolled" alt="">
-                        </a>
-                    </div>
-                    <!-- End Header Navigation -->
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="navbar-menu">
-                        <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                            <li><a href="{% url 'home' %}">home</a></li>
-							<li><a href="{% url 'aboutus' %}">about</a></li>
-                            <li><a href="{% url 'contactus' %}">contact</a></li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div>
-            </nav>
-
-            <!--Home Sections-->
-            <section id="hello" class="about-banner bg-mega">
-                <div class="overlay"></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="main_home text-center">
-                            <div class="about_text">
-                                <h1 class="text-white text-uppercase">About Us</h1>
-                                <ol class="breadcrumb">
-                                    <li><a href="#">Home</a></li>
-                                    <li class="active"><a href="#">About Us</a></li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div><!--End off row-->
-                </div><!--End off container -->
-            </section> <!--End off Home Sections-->
-
-            <!--About Sections-->
-            <section id="feature" class="ab_feature roomy-100">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_ab_feature">
-                            <div class="col-md-6">
-                                <!-- Head Title -->
-                                <div class="head_title">
-                                    <h2>Story about us</h2>
-                                    <h5><em>We are born at a given moment, in a given place and, like vintage years of wine, 
-                                        we have the qualities of the year and of the season of which we are born. Astrology 
-                                        does not lay claim to anything more.
-                                    </em></h5>
-                                    <div class="separator_left"></div>
-                                </div><!-- End off Head Title -->
-
-                                <div class="ab_feature_content wow fadeIn m-top-40">
-                                    <p>Wine is an alcoholic drink made from fermented grapes.Yeast consumes the sugar in the grapes and converts it to ethanol, carbon dioxide, and heat. Different varieties of grapes and strains of yeasts produce different styles of wine. These variations result from the complex interactions between the biochemical development of the grape, the reactions involved in fermentation, the terroir, and the production process. Many countries enact legal appellations intended to define styles and qualities of wine. These typically restrict the geographical origin and permitted varieties of grapes, as well as other aspects of wine production. Wines not made from grapes include rice wine and fruit wines such as plum, cherry, pomegranate, currant and elderberry.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!--Company section-->
-
-            <section id="company" class="company bg-light">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_company roomy-100 text-center">
-                            <h3 class="text-uppercase">Light's Wine</h3>
-                            <p>7th floor - Palace Building - Banglore INDIA</p>
-                            <p>+91787483738373  -  info@pYaseenswine.com</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- scroll up-->
-            <div class="scrollup">
-                <a href="#"><i class="fa fa-chevron-up"></i></a>
-            </div><!-- End off scroll up -->
-
-            <footer id="footer" class="footer bg-mega">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_footer p-top-40 p-bottom-30">
-                            <div class="col-md-6 text-left sm-text-center">
-                                <p class="wow fadeInRight" data-wow-duration="1s">
-                                    Made with
-                                    <i class="fa fa-heart"></i>
-                                    for
-                                    <a target="_blank" href="https://www.hackerearth.com">HackerEarth</a>
-                                    2019. All Rights Reserved
-                                </p>
-                            </div>
-                            <div class="col-md-6 text-right sm-text-center sm-m-top-20">
-                                <ul class="list-inline">
-                                    <li><a href="">Facebook</a></li>
-                                    <li><a href="">Twitter</a></li>
-                                    <li><a href="">Instagram</a></li>
-                                    <li><a href="">Pinterest</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+{% block home_section %}
+<section id="hello" class="about-banner bg-mega">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="main_home text-center">
+        <div class="about_text">
+          <h1 class="text-white text-uppercase">About Us</h1>
+          <ol class="breadcrumb">
+            <li><a href="{% url 'home' %}">Home</a> </li>
+            <li class="active"><a href="{% url 'aboutus' %}">About Us</a></li>
+          </ol>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
 
-        <!-- JS includes -->
+{% block content %}
+<section id="feature" class="ab_feature roomy-100">
+  <div class="container">
+    <div class="row">
+      <div class="main_ab_feature">
+        <div class="col-md-6">
+          <div class="head_title">
+            <h2>Story about us</h2>
+            <h5><em>We are born at a given moment, in a given place and, like vintage years of wine,
+                we have the qualities of the year and of the season of which we are born. Astrology
+                does not lay claim to anything more.
+              </em></h5>
+            <div class="separator_left"></div>
+          </div>
 
-        <script src="{% static 'js/vendor/jquery-1.11.2.min.js' %}" ></script>
-        <script src="{% static 'js/vendor/bootstrap.min.js' %}" ></script>
-
-        <script src="{% static 'js/isotope.min.js' %}" ></script>
-        <script src="{% static 'js/jquery.magnific-popup.js' %}" ></script>
-        <script src="{% static 'js/jquery.easing.1.3.js' %}" ></script>
-        <script src="{% static 'js/slick.min.js' %}" ></script>
-        <script src="{% static 'js/jquery.collapse.js' %}" ></script>
-        <script src="{% static 'js/bootsnav.js' %}" ></script>
-
-        <script src="{% static 'js/plugins.js' %}" ></script>
-        <script src="{% static 'js/main.js' %}" ></script>
-
-    </body>
-</html>
+          <div class="ab_feature_content wow fadeIn m-top-40">
+            <p>Wine is an alcoholic drink made from fermented grapes.Yeast consumes the sugar in the grapes and converts it to ethanol, carbon dioxide, and heat. Different varieties of grapes and strains of yeasts produce different styles of
+              wine. These variations result from the complex interactions between the biochemical development of the grape, the reactions involved in fermentation, the terroir, and the production process. Many countries enact legal appellations
+              intended to define styles and qualities of wine. These typically restrict the geographical origin and permitted varieties of grapes, as well as other aspects of wine production. Wines not made from grapes include rice wine and fruit
+              wines such as plum, cherry, pomegranate, currant and elderberry.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

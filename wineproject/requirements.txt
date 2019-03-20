@@ -1,2 +1,3 @@
-install django-filter
-install django-widget-tweaks
+django-filter
+django-widget-tweaks
+pymysql

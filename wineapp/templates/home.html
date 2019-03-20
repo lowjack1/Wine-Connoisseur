@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>The Winery Shop</title>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/infinite.min.js' %}"></script>
+
+<style type="text/css">
+  .loader {
+    border: 13px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 13px solid #4169E1;
+    border-bottom: 13px solid #4169E1;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem
+  }
+
+  .text-white {
+    color: #FFFFFF !important
+  }
+
+  .card-img-overlay {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1.25rem
+  }
+
+  .card-title {
+    margin-bottom: .75rem
+  }
+
+  .card-text {
+    margin-bottom: 0
+  }
+
+  .card-template {
+    background-color: #4169E1;
+    border-radius: 15px;
+    margin: auto;
+    padding: 10px;
+    border: 3px solid;
+    width: 80%;
+    min-height: 50%;
+    word-wrap: break-word;
+    clear: both;
+  }
+</style>
+{% endblock %}
+
+{% block home_section %}
+<section id="hello" class="home bg-mega">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="main_home text-center">
+        <div class="home_text">
+          <h4 class="text-white text-uppercase">Your Wine drinking 101 Guide</h4>
+          <h1 class="text-white text-uppercase">"Wine is constant proof that God loves us and loves
+            to see us happy”
+          </h1>
+
+          <div class="separator"></div>
+          <h5 class=" text-uppercase text-white">
+            <em>Age is just a number. It's totally irrelevant unless, of course, you happen to be a
+              bottle of wine.
+            </em>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<section id="feature" class="feature p-top-100">
+  <div class="container">
+    <div class="infinite-container">
+      {% for data in wines %}
+      <div class="infinite-item">
+        <div class="card text-white card-template">
+          <div class="card-img-overlay" style="word-wrap:break-word;clear:both;">
+            <h1 class="card-title" style="color:white;">
+              <strong> {{ data.winery }} </strong>
+            </h1>
+            <h4 style="color:white;">
+              {% if data.country %}
+              {{ data.country }}{% if data.province %},
+              {{ data.province }}{% endif %}{% if data.region_1 %},
+              {{ data.region_1 }}{% elif data.region_2 %}, {{ data.region_2 }}
+              {% endif %}
+              {% endif %}
+            </h4>
+            {% if data.country %}
+            <h5 style="color:white;font-size: 156%;"> <i>
+                {{ data.designation }}
+              </i></h5>
+            {% endif %}
+            <p class="card-text" style="font-size: 120%;">
+              {{ data.description }}
+            </p>
+            <br>
+            <p class="card-text" style="font-size: 110%"><strong>
+                Variety : </strong> {{ data.variety }}
+            </p>
+            <p class="card-text" style="font-size: 110%"><strong>
+                Price &nbsp;&nbsp; : $ </strong> {{ data.price }}
+            </p>
+            <p class="card-text" style="font-size: 110%" ss>
+              <strong> Rating &nbsp;: </strong>
+              {% if data.points >= 1 %} ⭐ {% endif %}
+              {% if data.points >= 25 %} ⭐ {% endif %}
+              {% if data.points >= 50 %} ⭐ {% endif %}
+              {% if data.points >= 75 %} ⭐ {% endif %}
+              {% if data.points >= 100 %} ⭐ {% endif %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="infinite-item">
+        <br>
+        <br>
+      </div>
+      {% empty %}
+      {% endfor %}
+    </div>
+    <center>
+      <div class="loader" style="display: none;"> </div>
+    </center>
+
+    {% if wines.has_next %}
+    <center>
+      <h4> <strong>
+          <a class="infinite-more-link" href="?page={{ wines.next_page_number }}">
+          </a>
+        </strong> </h4>
+    </center>
+    {% endif %}
+
+    <script>
+      var infinite = new Waypoint.Infinite({
+        element: $('.infinite-container')[0],
+        onBeforePageLoad: function() {
+          $('.loader').show();
+        },
+        onAfterPageLoad: function($items) {
+          $('.loader').hide();
+        }
+      });
+    </script>
+  </div>
+</section>
+{% endblock %}

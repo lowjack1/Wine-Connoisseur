@@ -1,11 +1,11 @@
 {% block content %}
-  <form method="get">
-    {{ filter.form.as_p }}
-    <button type="submit">Search</button>
-  </form>
-  <ul>
+<form method="get">
+  {{ filter.form.as_p }}
+  <button type="submit">Search</button>
+</form>
+<ul>
   {% for user in filter.qs %}
-    <li>{{ user.country }} - {{ user.winery }}</li>
+  <li>{{ user.country }} - {{ user.winery }}</li>
   {% endfor %}
-  </ul>
+</ul>
 {% endblock %}
